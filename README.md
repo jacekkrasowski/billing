@@ -9,3 +9,7 @@ https://issuetracker.google.com/u/1/issues?q=componentid:311487%20status:open
 ####
 
 本项目遵循 Google billing 原开源协议，如有侵权可以随时与我联系。
+
+附：
+
+![](https://ws1.sinaimg.cn/large/86e2ff85gy1fm8ex01nboj21ym10ctlu.jpg)
