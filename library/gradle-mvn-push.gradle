@@ -106,11 +106,14 @@ afterEvaluate { project ->
         }
     }
 
-    task javadocJar(type: Jar, dependsOn: 'releaseJavadoc') {
+    task androidJavadocs(type: Javadoc) {
+        source = 'src/main/java,src/main/aidl'
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    }
+
+    task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
         classifier = 'javadoc'
-        from {
-            releaseJavadoc.destinationDir
-        }
+        from androidJavadocs.destinationDir
     }
 
     task androidSourcesJar(type: Jar) {
@@ -120,6 +123,6 @@ afterEvaluate { project ->
 
     artifacts {
         archives androidSourcesJar
-        archives javadocJar
+        archives androidJavadocsJar
     }
 }
