@@ -3,7 +3,6 @@ package com.android.billingclient.api;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.os.Bundle;
 import com.android.billingclient.api.BillingClient.BillingResponse;
 import com.android.billingclient.util.BillingHelper;
@@ -32,7 +31,7 @@ public class ProxyBillingActivity extends Activity {
     try {
       startIntentSenderForResult(
           pendingIntent.getIntentSender(), REQUEST_CODE, new Intent(), 0, 0, 0);
-    } catch (IntentSender.SendIntentException e) {
+    } catch (Throwable e) {
       BillingHelper.logWarn(TAG, "Got exception while trying to start a purchase flow: " + e);
       broadcastResult(BillingResponse.ERROR, null);
       finish();
